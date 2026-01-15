@@ -188,7 +188,7 @@ h2 {
 .logo {
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: -1px;
     font-weight: 700;
     font-size: var(--font-size-xl);
     text-decoration: none;
@@ -198,6 +198,7 @@ h2 {
     height: 55px;
     width: auto;
     object-fit: contain;
+    transform: translateY(-3px);
 }
 
 .logo-text {
