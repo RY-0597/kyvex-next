@@ -198,7 +198,6 @@ h2 {
     height: 55px;
     width: auto;
     object-fit: contain;
-    transform: translate(20px, -2px);
 }
 
 .logo-text {
@@ -1673,6 +1672,23 @@ h2 {
     .footer-social {
         justify-content: center;
     }
+
+    /* 開發流程改為垂直排列 */
+    .process-timeline,
+    .process-timeline-4 {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .process-step {
+        width: 100%;
+    }
+
+    /* 隱藏垂直裝飾線 */
+    .process-step::after {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1695,7 +1711,22 @@ h2 {
     }
 
     /* 手機版禁用 scroll-snap 以改善體驗 */
+    html,
     body {
-        scroll-snap-type: none;
+        scroll-snap-type: none !important;
+        overflow-x: hidden;
+    }
+
+    /* 所有區塊取消 scroll-snap */
+    section,
+    .hero,
+    .about,
+    .services,
+    .team,
+    .contact,
+    .footer,
+    .process {
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
     }
 }
