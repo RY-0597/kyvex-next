@@ -188,7 +188,7 @@ h2 {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     font-weight: 700;
     font-size: var(--font-size-xl);
     text-decoration: none;
@@ -202,6 +202,7 @@ h2 {
 
 .logo-text {
     letter-spacing: 0.05em;
+    margin-left: 0;
 }
 
 .nav-menu {
