@@ -49,7 +49,7 @@ export default function Navbar() {
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} id="navbar">
             <div className="nav-container">
                 <a href="#" className="logo">
-                    <Image src="/logo.png" alt="KYVEX Logo" width={55} height={55} className="logo-img" />
+                    <Image src="/logo.png" alt="KYVEX Logo" width={65} height={65} className="logo-img" />
                     <span className="logo-text">{t('logo')}</span>
                 </a>
                 <button
