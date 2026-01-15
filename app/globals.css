@@ -198,7 +198,7 @@ h2 {
     height: 55px;
     width: auto;
     object-fit: contain;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
 .logo-text {
