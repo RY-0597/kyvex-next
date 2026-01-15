@@ -12,6 +12,7 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   'zh-TW': {
+    'meta.title': 'KYVEX | 高效能網站開發與數位解決方案',
     'logo': 'KYVEX',
     'nav.home': '首頁',
     'nav.about': '關於我們',
@@ -89,6 +90,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.form.failed': '✗ 訊息發送失敗。請重試或直接發送郵件給我們。'
   },
   'en': {
+    'meta.title': 'KYVEX | High-Performance Web Development',
     'logo': 'KYVEX',
     'nav.home': 'Home',
     'nav.about': 'About',
@@ -183,6 +185,8 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setCurrentLang(lang);
     localStorage.setItem('preferredLang', lang);
     document.documentElement.lang = lang;
+    // 動態更新網頁標題
+    document.title = translations[lang]['meta.title'];
   };
 
   const t = (key: string): string => {
