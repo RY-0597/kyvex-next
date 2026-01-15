@@ -1732,4 +1732,16 @@ h2 {
         scroll-snap-align: none;
         scroll-snap-stop: normal;
     }
+
+    /* 手機版使用更快更輕微的動畫 */
+    .animate-on-scroll {
+        opacity: 0.3;
+        transform: translateY(10px);
+        transition: all 0.25s ease-out;
+    }
+
+    .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
