@@ -188,7 +188,7 @@ h2 {
 .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
     font-weight: 700;
     font-size: var(--font-size-xl);
     text-decoration: none;
