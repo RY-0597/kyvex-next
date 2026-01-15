@@ -188,7 +188,7 @@ h2 {
 .logo {
     display: flex;
     align-items: center;
-    gap: -5px;
+    gap: 0px;
     font-weight: 700;
     font-size: var(--font-size-xl);
     text-decoration: none;
@@ -198,13 +198,13 @@ h2 {
     height: 55px;
     width: auto;
     object-fit: contain;
-    transform: translate(-15px, -2.3px);
+    transform: translate(-20px, -2.3px);
 }
 
 .logo-text {
     letter-spacing: 0.05em;
     margin-left: 0;
-    transform: translateX(-15px);
+    transform: translateX(-22px);
 }
 
 .nav-menu {
