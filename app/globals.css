@@ -1733,11 +1733,11 @@ h2 {
         scroll-snap-stop: normal;
     }
 
-    /* 手機版使用更快更輕微的動畫 */
+    /* 手機版使用原本的慢動畫，但一開始半透明可見 */
     .animate-on-scroll {
-        opacity: 0.3;
-        transform: translateY(10px);
-        transition: all 0.25s ease-out;
+        opacity: 0.4;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
     }
 
     .animate-on-scroll.visible {
