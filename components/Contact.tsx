@@ -3,7 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-import emailjs from '@emailjs/browser';
+
 
 export default function Contact() {
     const { t, currentLang } = useLanguage();
@@ -61,6 +61,7 @@ export default function Contact() {
 
         try {
             const form = e.currentTarget;
+            const emailjs = (await import('@emailjs/browser')).default;
             await emailjs.sendForm('service_o7b0255', 'template_1zqcmyp', form, {
                 publicKey: 'zdgZAGmOm1G6tMy8E',
             });
