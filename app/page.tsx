@@ -1,13 +1,16 @@
 'use client';
 
 import { useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import Process from '@/components/Process';
-import Contact from '@/components/Contact';
-import PageDots from '@/components/PageDots';
+
+// 延遲載入非首屏元件 (解決 #9 Unused JavaScript)
+const About = dynamic(() => import('@/components/About'));
+const Services = dynamic(() => import('@/components/Services'));
+const Process = dynamic(() => import('@/components/Process'));
+const Contact = dynamic(() => import('@/components/Contact'));
+const PageDots = dynamic(() => import('@/components/PageDots'), { ssr: false }); // PageDots 僅在客戶端有互動意義
 
 export default function Home() {
   useEffect(() => {
