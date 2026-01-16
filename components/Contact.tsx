@@ -62,7 +62,7 @@ export default function Contact() {
         try {
             const form = e.currentTarget;
             const emailjs = (await import('@emailjs/browser')).default;
-            await emailjs.sendForm('service_o7b0255', 'template_1zqcmyp', form, {
+            await emailjs.sendForm('service_ybc4ni1', 'template_1zqcmyp', form, {
                 publicKey: 'zdgZAGmOm1G6tMy8E',
             });
 
