@@ -99,7 +99,7 @@ section,
 .hero,
 .about,
 .services,
-.team,
+
 .contact,
 .footer {
     scroll-snap-align: start;
@@ -1602,9 +1602,7 @@ h2 {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+
 
     .footer-grid {
         grid-template-columns: 1fr 1fr;
@@ -1661,9 +1659,7 @@ h2 {
         grid-template-columns: 1fr;
     }
 
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
+
 
     .contact-grid {
         grid-template-columns: 1fr;
@@ -1727,7 +1723,7 @@ h2 {
     .hero,
     .about,
     .services,
-    .team,
+
     .contact,
     .footer,
     .process {
