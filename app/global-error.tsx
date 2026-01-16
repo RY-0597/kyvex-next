@@ -2,6 +2,7 @@
 
 // global-error.tsx is a special error boundary that wraps the entire app
 // including the root layout. It MUST define its own <html> and <body>.
+// IMPORTANT: Uses inline styles because CSS may not have loaded when this renders.
 
 export default function GlobalError({
     error,
@@ -11,14 +12,52 @@ export default function GlobalError({
     reset: () => void;
 }) {
     return (
-        <html>
-            <body className="bg-gray-900 text-white">
-                <div className="flex flex-col items-center justify-center min-h-screen p-4 text-center">
-                    <h2 className="text-2xl font-bold mb-4">發生嚴重錯誤</h2>
-                    <p className="text-gray-400 mb-8">無法載入網站內容。這可能是由於瀏覽器兼容性問題。</p>
+        <html lang="zh-TW">
+            <head>
+                <meta charSet="utf-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <title>發生錯誤 | KYVEX</title>
+            </head>
+            <body style={{
+                margin: 0,
+                padding: 0,
+                minHeight: '100vh',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#0f172a',
+                color: '#ffffff',
+                fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                textAlign: 'center',
+            }}>
+                <div style={{ padding: '24px', maxWidth: '400px' }}>
+                    <h2 style={{
+                        fontSize: '24px',
+                        fontWeight: 'bold',
+                        marginBottom: '16px',
+                    }}>
+                        發生嚴重錯誤
+                    </h2>
+                    <p style={{
+                        color: '#94a3b8',
+                        marginBottom: '24px',
+                        lineHeight: 1.6,
+                    }}>
+                        無法載入網站內容。這可能是由於瀏覽器兼容性問題。
+                    </p>
                     <button
                         onClick={() => reset()}
-                        className="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+                        style={{
+                            padding: '12px 24px',
+                            backgroundColor: '#3b82f6',
+                            color: '#ffffff',
+                            border: 'none',
+                            borderRadius: '8px',
+                            fontSize: '16px',
+                            fontWeight: 500,
+                            cursor: 'pointer',
+                        }}
                     >
                         重新載入
                     </button>
