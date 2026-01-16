@@ -27,6 +27,8 @@
   "browserslist": [
     "defaults",
     "not IE 11",
-    "not dead"
+    "not dead",
+    "ios_saf >= 14",
+    "and_chr >= 100"
   ]
 }
