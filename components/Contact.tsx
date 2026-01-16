@@ -3,13 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-declare global {
-    interface Window {
-        emailjs: {
-            sendForm: (serviceId: string, templateId: string, form: HTMLFormElement) => Promise<unknown>;
-        };
-    }
-}
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
     const { t, currentLang } = useLanguage();
@@ -67,7 +61,9 @@ export default function Contact() {
 
         try {
             const form = e.currentTarget;
-            await window.emailjs.sendForm('service_ptplm7m', 'template_1zqcmyp', form);
+            await emailjs.sendForm('service_ptplm7m', 'template_1zqcmyp', form, {
+                publicKey: 'zdgZAGmOm1G6tMy8E',
+            });
 
             setSubmitStatus('success');
             setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
