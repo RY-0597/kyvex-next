@@ -58,10 +58,18 @@ export default function RootLayout({
       <head>
         <Script
           src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-          strategy="beforeInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="emailjs-init" strategy="beforeInteractive">
-          {`(function() { emailjs.init("zdgZAGmOm1G6tMy8E"); })();`}
+        <Script id="emailjs-init" strategy="lazyOnload">
+          {`
+            (function checkEmailJS() {
+              if (typeof emailjs !== 'undefined') {
+                emailjs.init("zdgZAGmOm1G6tMy8E");
+              } else {
+                setTimeout(checkEmailJS, 100);
+              }
+            })();
+          `}
         </Script>
       </head>
       <body>

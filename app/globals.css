@@ -541,7 +541,9 @@ h2 {
     -webkit-text-fill-color: transparent;
     animation: gradientFlow 6s ease infinite;
     background-size: 200% 200%;
-    /* 文字發光效果 */
+    /* GPU 合成優化 - 解決非合成動畫問題 */
+    will-change: background-position;
+    /* 文字發光效果 - 改為靜態以避免重繪 */
     filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.3));
 }
 
