@@ -27,9 +27,10 @@ export function middleware(request: NextRequest) {
         response.headers.delete('X-Content-Type-Options'); // Remove MIME sniff blocking
         response.headers.set('X-Instagram-Fix', 'Active-V2'); // Debug header
     } else {
-        // Normal browsers: Apply stricter security headers
+        // Normal browsers: Apply SAFER (but not too strict) security headers
+        // IG Link Shim handoff might momentarily use a generic UA, so 'DENY' is too risky.
         response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-        response.headers.set('X-Frame-Options', 'DENY');
+        response.headers.set('X-Frame-Options', 'SAMEORIGIN'); // Allow same-origin framing (safer than DENY)
         response.headers.set('X-Content-Type-Options', 'nosniff');
         response.headers.set('X-XSS-Protection', '1; mode=block');
     }
