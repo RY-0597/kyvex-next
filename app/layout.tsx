@@ -33,6 +33,7 @@ export const metadata: Metadata = {
     siteName: 'KYVEX',
     locale: 'zh_TW',
     type: 'website',
+    images: ['/hero-bg.png'],
   },
   twitter: {
     card: 'summary_large_image',
