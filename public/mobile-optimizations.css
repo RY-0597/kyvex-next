@@ -1,0 +1,47 @@
+/* ===== Mobile Performance Optimization ===== */
+/* 手機版效能優化：減少字型載入、停用動畫 */
+/* 此檔案只在 768px 以下載入 */
+
+/* 1. 使用系統字型，跳過 Noto Sans TC 載入 (省下 15+ 字型檔) */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
+        'PingFang TC', 'Microsoft JhengHei', 'Heiti TC',
+        sans-serif !important;
+}
+
+/* 2. 停用 gradient-text 動畫，保留靜態漸層 */
+.gradient-text {
+    animation: none !important;
+}
+
+/* 3. 停用 Hero 背景動畫效果 */
+.hero-bg::after {
+    animation: none !important;
+    filter: blur(30px);
+    /* 降低 blur 強度節省 GPU */
+}
+
+.hero-content::before {
+    animation: none !important;
+}
+
+/* 4. 停用滾動指示器動畫 */
+.scroll-indicator::after {
+    animation: none !important;
+}
+
+/* 5. 減少 backdrop-filter 使用 (GPU 密集型) */
+.navbar.scrolled {
+    backdrop-filter: blur(10px);
+}
+
+.custom-select-trigger,
+.custom-select-options {
+    backdrop-filter: none;
+}
+
+/* 6. 簡化按鈕 hover 效果 */
+.hero-buttons .btn-primary:hover,
+.hero-buttons .btn-secondary:hover {
+    transform: none;
+}

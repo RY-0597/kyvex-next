@@ -62,6 +62,8 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Mobile-only CSS - only loads on screens <= 768px */}
+        <link rel="stylesheet" href="/mobile-optimizations.css" media="(max-width: 768px)" />
       </head>
       <body>
         <LanguageProvider>
