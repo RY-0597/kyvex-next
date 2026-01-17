@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter, Noto_Sans_TC } from 'next/font/google';
-import Script from 'next/script';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
@@ -20,6 +19,7 @@ const notoSansTC = Noto_Sans_TC({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://kyvex-next.vercel.app'),
   title: 'KYVEX | 高效能網站開發與數位解決方案',
   description: 'KYVEX 專注於高效能網站開發、Next.js/React 前端工程、客製化 Web 應用程式。我們堅持 Clean Code，拒絕套版，為企業打造未來就緒的數位基礎設施。',
   keywords: 'KYVEX, 網站開發, Web Development, Next.js, React, TypeScript, 前端工程, 客製化網站, 高效能網站, 數位轉型, Clean Code, 台灣網頁設計',
@@ -59,7 +59,9 @@ export default function RootLayout({
   return (
     <html lang="zh-TW" className={`${inter.variable} ${notoSansTC.variable}`} suppressHydrationWarning>
       <head>
-
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body>
         <LanguageProvider>
