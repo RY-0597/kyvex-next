@@ -48,6 +48,8 @@ export const metadata: Metadata = {
   },
 };
 
+import DebugLogger from '@/components/DebugLogger';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -61,9 +63,10 @@ export default function RootLayout({
       <body>
         <LanguageProvider>
           {children}
+          <DebugLogger />
         </LanguageProvider>
-        <SpeedInsights />
-        <Analytics />
+        {/* <SpeedInsights /> */}
+        {/* <Analytics /> */}
       </body>
     </html>
   );
