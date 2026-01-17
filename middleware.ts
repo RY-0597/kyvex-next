@@ -3,12 +3,20 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
     const userAgent = request.headers.get('user-agent') || '';
-    const isInstagram = userAgent.toLowerCase().includes('instagram');
+    const ua = userAgent.toLowerCase();
+
+    // Detect Instagram, Facebook crawlers, and Facebook In-App Browser
+    // facebookexternalhit is used by the Link Shim (Safe Browsing) bot
+    const isMetaPlatform =
+        ua.includes('instagram') ||
+        ua.includes('facebookexternalhit') ||
+        ua.includes('fb_iab') ||         // Facebook In-App Browser
+        ua.includes('fbav');             // Facebook App for Android/iOS
 
     // Create response with next()
     const response = NextResponse.next();
 
-    if (isInstagram) {
+    if (isMetaPlatform) {
         // Instagram In-App Browser: MAXIMUM permissive headers for Safe Browsing pass-through
         // Key insight: IG's Safe Browsing likely tries to iframe/pre-fetch the site
         response.headers.set('Referrer-Policy', 'no-referrer-when-downgrade');
