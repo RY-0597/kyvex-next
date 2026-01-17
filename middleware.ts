@@ -13,13 +13,17 @@ export function middleware(request: NextRequest) {
         ua.includes('fb_iab') ||         // Facebook In-App Browser
         ua.includes('fbav');             // Facebook App for Android/iOS
 
-    // Detect PageSpeed Insights / Lighthouse crawlers
-    // These need permissive headers or they timeout on mobile tests
+    // Detect PageSpeed Insights / Lighthouse crawlers (Mobile & Desktop)
+    // UA examples:
+    // - "Mozilla/5.0 ... Chrome-Lighthouse"
+    // - "Mozilla/5.0 ... HeadlessChrome/xxx.x ... Lighthouse"
     const isPageSpeedBot =
         ua.includes('lighthouse') ||
+        ua.includes('headlesschrome') ||  // HeadlessChrome used by Lighthouse
         ua.includes('pagespeed') ||
         ua.includes('chrome-lighthouse') ||
-        ua.includes('speed insights');
+        ua.includes('speed insights') ||
+        ua.includes('googlebot');  // Google bots in general
 
     // Create response with next()
     const response = NextResponse.next();
