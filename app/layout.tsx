@@ -15,7 +15,7 @@ const notoSansTC = Noto_Sans_TC({
   subsets: ['latin'],
   variable: '--font-noto-sans-tc',
   weight: ['400', '700'],
-  display: 'swap',
+  display: 'optional', // LCP optimization: render immediately with fallback if font not ready
 });
 
 export const metadata: Metadata = {
