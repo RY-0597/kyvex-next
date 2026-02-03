@@ -1719,6 +1719,9 @@ h2 {
     body {
         scroll-snap-type: none !important;
         overflow-x: hidden;
+        height: auto !important;
+        /* 允許滾動到頁尾 */
+        min-height: 100vh;
     }
 
     /* 所有區塊取消 scroll-snap */
