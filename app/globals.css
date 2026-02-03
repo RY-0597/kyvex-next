@@ -1715,13 +1715,20 @@ h2 {
     }
 
     /* 手機版禁用 scroll-snap 以改善體驗 */
-    html,
+    /* 手機版禁用 scroll-snap 並修復滾動問題 */
+    html {
+        overflow-y: auto !important;
+        /* 恢復視口滾動 */
+        scroll-snap-type: none !important;
+    }
+
     body {
+        height: auto !important;
+        min-height: 100vh;
+        overflow-y: visible !important;
+        /* body 不再負責滾動 */
         scroll-snap-type: none !important;
         overflow-x: hidden;
-        height: auto !important;
-        /* 允許滾動到頁尾 */
-        min-height: 100vh;
     }
 
     /* 所有區塊取消 scroll-snap */
